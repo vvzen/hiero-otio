@@ -38,6 +38,28 @@ python package available in the `PYTHONPATH` environment variable.
 
 ## Plugin Installation
 
+### For Pipeline peeps
+
+You need to simply append to a couple of paths.
+For example, in bash, you'd do:
+
+```bash
+export PACKAGE_DIR=/where/you/will/download/this/repo
+export HIERO_PLUGIN_PATH=$HIERO_PLUGIN_PATH:${PACKAGE_DIR}
+export PYTHONPATH=$PYTHONPATH:${PACKAGE_DIR}/Python/site-packages
+```
+
+Or, using tcl modules:
+```
+#%Module1.0
+
+set PACKAGE_DIR [file dirname [file normalize ${ModulesCurrentModulefile}]]
+prepend-path HIERO_PLUGIN_PATH ${PACKAGE_DIR}
+append-path PYTHONPATH ${PACKAGE_DIR}/Python/site-packages
+```
+
+### For home users
+
 The easiest way to install the plugin is to unpack the contents to the `.nuke` 
 folder in your "HOME" directory.<br>
 For Hiero/Nuke Studio version < 12 extract to the `.hiero` folder.
